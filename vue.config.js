@@ -22,8 +22,9 @@ module.exports = {
                 })
         })
     },
-
-    publicPath: '/phaser3-rpg/',
+    publicPath: process.env.NODE_ENV === 'production'
+        ? '/phaser3-rpg/'
+        : '/',
     outputDir: 'docs',
     productionSourceMap: false
 }

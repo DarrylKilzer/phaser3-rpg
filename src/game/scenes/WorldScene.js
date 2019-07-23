@@ -69,6 +69,7 @@ export default class WorldScene extends Scene {
 
     update(time, delta) {
         this.move()
+        this.mouseMove()
         this.animate()
     }
 
@@ -107,6 +108,23 @@ export default class WorldScene extends Scene {
         }
         else if (this.cursors.down.isDown) {
             this.player.body.setVelocityY(80);
+        }
+    }
+
+    mouseMove() {
+        if (this.input.mousePointer.isDown) {
+            //  if it's overlapping the mouse, don't move any more
+            this.physics.overlapRect(this.input.x, this.input.y, 1, 1).forEach(el => {
+                if (el == this.player) {
+                    this.player.body.velocity.setTo(0, 0);
+                    return
+                }
+            });
+            //  400 is the speed it will move towards the mouse
+            this.physics.moveTo(this.player, this.input.activePointer.position.x, this.input.activePointer.position.y, 100);
+        }
+        else {
+            this.player.body.velocity.setTo(0, 0);
         }
     }
 }
