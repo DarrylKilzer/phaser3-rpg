@@ -19,8 +19,8 @@ module.exports = {
                 })
         })
     },
-    devServer: {
-        open: true,
-        hot: false
-    }
+    // devServer: {
+    //     open: true,
+    //     hot: false
+    // }
 }

@@ -1,7 +1,7 @@
 <template>
-  <div id="app container-fluid bg-dark">
-    <div class="row justify-content-center">
-      <router-view class="col-8" />
+  <div id="app bg-dark">
+    <div>
+      <router-view />
     </div>
   </div>
 </template>

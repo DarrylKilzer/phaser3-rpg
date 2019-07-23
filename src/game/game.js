@@ -7,9 +7,9 @@ function launch() {
     new Phaser.Game({
         type: Phaser.AUTO,
         parent: 'content',
-        width: 320 * 1.5,
-        height: 240 * 1.85,
-        zoom: 2,
+        width: 500,
+        height: 298,
+        zoom: 3,
         physics: {
             default: 'arcade',
             arcade: {

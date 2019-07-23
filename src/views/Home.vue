@@ -1,6 +1,8 @@
 <template>
   <div class="home">
-    <Game />
+    <div class="m-auto">
+      <Game />
+    </div>
   </div>
 </template>
 
