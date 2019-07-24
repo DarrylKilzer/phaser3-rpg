@@ -1,8 +1,8 @@
 module.exports = {
-    // devServer: {
-    //     open: true,
-    //     hot: false
-    // }
+    devServer: {
+        open: true,
+        hot: false
+    },
     chainWebpack: config => {
         /* disable insertion of assets as data urls b/c Phaser doesn't support it */
         const rules = [

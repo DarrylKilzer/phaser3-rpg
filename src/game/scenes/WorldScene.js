@@ -65,12 +65,30 @@ export default class WorldScene extends Scene {
         });
 
         this.physics.add.collider(this.player, obstacles)
+
+        this.spawns = this.physics.add.group({ classType: Phaser.GameObjects.Zone });
+        for (var i = 0; i < 30; i++) {
+            var x = Phaser.Math.RND.between(0, this.physics.world.bounds.width);
+            var y = Phaser.Math.RND.between(0, this.physics.world.bounds.height);
+            // parameters are x, y, width, height
+            this.spawns.create(x, y, '');
+        }
+        this.physics.add.overlap(this.player, this.spawns, this.onMeetEnemy.bind(this));
     }
 
     update(time, delta) {
         this.move()
-        this.mouseMove()
+        // this.mouseMove()
         this.animate()
+    }
+
+    onMeetEnemy(player, zone) {
+        // we move the zone to some other location
+        zone.x = Phaser.Math.RND.between(0, this.physics.world.bounds.width);
+        zone.y = Phaser.Math.RND.between(0, this.physics.world.bounds.height);
+        // zone.destroy()
+        this.cameras.main.flash(300)
+        this.cameras.main.shake(300);
     }
 
     animate() {

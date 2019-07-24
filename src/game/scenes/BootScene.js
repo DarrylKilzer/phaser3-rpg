@@ -2,6 +2,9 @@ import { Scene } from 'phaser'
 import tiles from '@/game/assets/map/spritesheet.png'
 import map from '@/game/assets/map/map.json'
 import player from '@/game/assets/RPG_assets.png'
+import dragonblue from '@/game/assets/dragonblue.png'
+import dragonorange from '@/game/assets/dragonorange.png'
+
 
 export default class BootScene extends Scene {
     constructor() {
@@ -18,9 +21,12 @@ export default class BootScene extends Scene {
 
         // our two characters
         this.load.spritesheet('player', player, { frameWidth: 16, frameHeight: 16 });
+        this.load.image('dragonblue', dragonblue)
+        this.load.image('dragonorange', dragonorange)
     }
 
     create() {
-        this.scene.start('WorldScene');
+        this.scene.start('BattleScene');
+        // this.scene.start('WorldScene');
     }
 }
