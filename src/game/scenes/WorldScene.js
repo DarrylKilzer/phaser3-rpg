@@ -67,9 +67,9 @@ export default class WorldScene extends Scene {
         this.physics.add.collider(this.player, obstacles)
 
         this.spawns = this.physics.add.group({ classType: Phaser.GameObjects.Zone });
-        for (var i = 0; i < 30; i++) {
-            var x = Phaser.Math.RND.between(0, this.physics.world.bounds.width);
-            var y = Phaser.Math.RND.between(0, this.physics.world.bounds.height);
+        for (let i = 0; i < 30; i++) {
+            let x = Phaser.Math.RND.between(0, this.physics.world.bounds.width);
+            let y = Phaser.Math.RND.between(0, this.physics.world.bounds.height);
             // parameters are x, y, width, height
             this.spawns.create(x, y, '');
         }
